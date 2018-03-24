@@ -10,7 +10,7 @@
 
         <div class='row'>
 
-            <div class='col-md-3'>
+            <div class='col-md-6 col-lg-3 mb-md-5'>
 
                 @if (count($errors) > 0)
                     <div id='errors'>
@@ -54,14 +54,14 @@
 
             </div>
 
-            <div class='col-md-3 text-center'>
+            <div class='col-md-6 col-lg-3 text-center mb-md-5'>
                 <h6><strong>Телефон:</strong></h6>
                 <p><a href='tel:+73832637073'>+7 (383) 263-70-73</a></p>
                 <p><a href='tel:+79039007073'>+7-903-900-70-73</a></p>
                 <h6><strong>E-mail:</strong></h6>
                 <p><a href="mailto:lesorubnsk@mail.ru">lesorubnsk@mail.ru</a></p>
             </div>
-            <div class='col-md-3 text-center'>
+            <div class='col-md-6 col-lg-3 text-center'>
                 <h6><strong>Наш адрес:</strong></h6>
                 <address>
                     г. Новосибирск,<br> ул. Инская, 39,<br> офис 301
@@ -69,7 +69,7 @@
                 <h6><strong>Время работы:</strong></h6>
                 <p>ПН-ПТ 10:00-19:00<br>СБ-ВС - по договоренности</p>
             </div>
-            <div class='col-md-3 text-center'>
+            <div class='col-md-6 col-lg-3 text-center'>
                 <h6><strong>Социальные сети</strong></h6>
                 <p>Будьте на связи с нами в ваших любимых социальных сетях и получайте информацию из первых рук! Эти ссылки помогут вам.</p>
                 <div class='d-flex justify-content-around'>

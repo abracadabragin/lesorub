@@ -33,9 +33,12 @@
                         </div>
                         <div class="card-body">
 
-                            <blockquote class="blockquote mb-0">
-                                <p>{{ $feedback['text'] }}</p>
+                            <blockquote class="blockquote blockquote-collapse">
+                                <p class='feedback-text'>{{ $feedback['text'] }}</p>
                             </blockquote>
+                            <footer class='text-center'>
+                                <a class='feeback-more'>Читать полностью</a>
+                            </footer>
                         </div>
                     </div>
                 </div>

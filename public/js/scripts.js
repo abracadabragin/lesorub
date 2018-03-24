@@ -5,29 +5,21 @@ $(document).ready(function () {
     var $wWidth = $(window).width();
     var carousel_prev = $('.carousel-control-prev');
     var carousel_next = $('.carousel-control-next');
-
+    var outerHeightMenu = $('#navbar-main').outerHeight();
+    $('.carousel-info').css('padding-top', outerHeightMenu);
     $items.height($wHeight);
 
-    if ($wWidth > 576) {
-        $items.each(function() {
-            var $src = $(this).data('src');
-            $(this).css('background-image', 'url(' + $src + ')');
-        });
-    } else {
-        //$('.darkness').remove();
-        carousel_next.remove();
-        carousel_prev.remove();
-        $items.each(function(index) {
-            if(index > 0) {
-                $(this).remove();
-            }
-        });
-        // $items.first().css('background-color', '#fff');
-    }
+    $items.each(function() {
+        var $src = $(this).data('src');
+        $(this).css('background-image', 'url(' + $src + ')');
+        $(this).addClass('');
+    });
 
     $(window).on('resize', function (){
         $wHeight = $(window).height();
         $items.height($wHeight);
+        outerHeightMenu = $('#navbar-main').outerHeight();
+        $('.carousel-info').css('padding-top', outerHeightMenu);
     });
 
     carousel_prev.click(function () {
@@ -66,15 +58,14 @@ $(document).ready(function () {
     });
     // -- end carousel
     // -- begin nav
-    var offsetHeight = $('#navbar-main').height();
 
     $('.nav-collapse').scrollspy({
-        offset: offsetHeight
+        offset: outerHeightMenu
     });
 
     $('.nav-link').click(function () {
 
-        var scrollPos = $('body').find($(this).attr('href')).offset().top - offsetHeight;
+        var scrollPos = $('body').find($(this).attr('href')).offset().top - outerHeightMenu;
         $('body,html').animate({
             scrollTop: scrollPos
         }, 500);
@@ -101,13 +92,14 @@ $(document).ready(function () {
         }
     };
     $('.card-img-top').first().on('load', function () {
+
         $('.card-img-top').height($(this).height());
         var heights = $(".card-body .card-title").map(function ()
             {
                 return $(this).outerHeight();
-            }).get(),
-            maxHeight = Math.max.apply(null, heights);
-        $('.card-body .card-title').css('min-height', maxHeight);
+            }).get();
+        $('.card-body .card-title').css('min-height', Math.max.apply(null, heights));
+
     });
 
     $("#discounts .owl-carousel").owlCarousel(owlParams);
@@ -133,7 +125,7 @@ $(document).ready(function () {
         $("#houses .owl-carousel").trigger('next.owl.carousel', [400]);
     });
 
-    $('.btn-description').click(function(){
+    $('.show-description').click(function(){
 
         var $url = window.location.href + "products/" + $(this).data('id') + "/show";
         $.ajax({
@@ -231,6 +223,26 @@ $(document).ready(function () {
         $(this).find('.owl-carousel').trigger('destroy.owl.carousel').removeClass('owl-loaded');
         $(this).find('.owl-carousel').html("");
     });
+
+    $('.feeback-more').click(function () {
+
+        var self = $(this).closest('.card-body');
+        var blockquote = self.find('.blockquote');
+
+        if (blockquote.hasClass('blockquote-collapse')) {
+
+            blockquote.removeClass('blockquote-collapse');
+            $(this).text('Свернуть');
+
+        } else {
+
+            blockquote.addClass('blockquote-collapse');
+            $(this).text('Читать полностью');
+
+        }
+
+    });
+
     // -- end feedbacks
     // -- begin forms
     $("input[name='phone']").mask("+7(999) 999-99-99");

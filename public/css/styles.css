@@ -1,3 +1,7 @@
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Roboto Slab', sans-serif;
     color: #232534;
@@ -47,6 +51,13 @@ body {
     font-size: 1.1em;
     transition: color .3s ease;
 }
+#navbar-main .tel-small {
+    display: none;
+    color: #747F5A;
+}
+#navbar-main .tel-big {
+    color: #747F5A;
+}
 
 #navbar-main .navbar-brand-small {
     display: none;
@@ -90,12 +101,54 @@ body {
 }
 
 .container_carousel .darkness {
-    height: 100vh;
+    height: 100%;
     background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8));
 }
 
 .container_carousel .carousel-item.current {
     opacity: 1;
+}
+
+.carousel-caption .nav-link {
+    display: inline-block;
+    color: #fff;
+    font-size: 30px;
+    border: 1px solid white;
+    -webkit-border-radius: 10px 10px 30px 10px;
+    -moz-border-radius: 10px 10px 30px 10px;
+    border-radius: 10px 10px 30px 10px;
+}
+
+.carousel-info {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.guarantee {
+    background-image: url('../img/carousel/wood_tag.png');
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 25vh;
+}
+
+.carousel-block {
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0,0,0,.3);
+    border: white 1px solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.carousel-text {
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 0 0 1px #000;
+    font-family: 'Russo One', sans-serif;
 }
 
 .jumbotron {
@@ -190,8 +243,20 @@ body {
     height: auto;
 }
 
-#feedbacks blockquote {
+#feedbacks .blockquote {
     font-size: .9rem;
+}
+#feedbacks .blockquote-collapse {
+    max-height: 3.15rem;
+    overflow: hidden;
+}
+#feedbacks .feeback-more {
+    color: #747F5A;
+    cursor: pointer;
+}
+#feedbacks .feeback-more:hover {
+    color: #444F2A;
+    text-decoration: underline;
 }
 
 #contacts {
@@ -280,13 +345,49 @@ body {
     .modalShowFeedback .modal-lg {
         max-width: 100%;
     }
-
-}
-
-@media (max-width: 577px) {
-
-    .carousel-item {
-
+    #navbar-main .tel-small {
+        display: inline-block;
+    }
+    #navbar-main .tel-big {
+        display: none;
     }
 
+}
+@media (min-width: 576px) {
+    .carousel-text {
+        font-size: 18px;
+    }
+    .carousel-block {
+        padding: 15px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .carousel-text {
+        font-size: 20px;
+    }
+    .carousel-block {
+        padding: 15px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .carousel-text {
+        font-size: 22px;
+    }
+    .carousel-block {
+        padding: 20px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .carousel-text {
+        font-size: 28px;
+    }
+    .carousel-block {
+        padding: 30px;
+    }
 }

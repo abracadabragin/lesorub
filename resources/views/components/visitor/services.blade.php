@@ -16,7 +16,7 @@
                          alt='Systems'>
                 </div>
                 <div class='service-title mt-3 mb-2'>
-                    <h5>Фундамент</h5>
+                    <h5 class='text-center'>Фундамент</h5>
                 </div>
                 <div class='service-description'>
                     <ul>
@@ -34,7 +34,7 @@
                     <img src='{{ URL::asset('img/icons/paint-brush.png') }}' alt='Foundation'>
                 </div>
                 <div class='service-title mt-3 mb-2'>
-                    <h5>Отделочные работы</h5>
+                    <h5 class='text-center'>Отделочные работы</h5>
                 </div>
                 <div class='service-description'>
                     <ul>
@@ -52,7 +52,7 @@
                     <img src='{{ URL::asset('img/icons/portfolio-black-tool.png') }}' alt='Portfolio'>
                 </div>
                 <div class='service-title mt-3 mb-2'>
-                    <h5>Дополнительные услуги</h5>
+                    <h5 class='text-center'>Дополнительные услуги</h5>
                 </div>
                 <div class='service-description'>
                     <ul>
@@ -71,15 +71,15 @@
                     <img src='{{ URL::asset('img/icons/courthouse.png') }}' alt='Law'>
                 </div>
                 <div class='service-title mt-3 mb-2'>
-                    <h5>Юридическая помощь</h5>
+                    <h5 class='text-center'>Юридическая помощь</h5>
                 </div>
                 <div class='service-description'>
-                    <ul class='ml-3'>
+                    <ul>
                         <li>Разрешение на строительство</li>
                         <li>Оформление жилого дома</li>
                         <li>Дачная амнистия</li>
                         <li>Кадастровые работы</li>
-                        <li><a href='http://citygroup54.ru/' target='_blank'>Переход на сайт</a></li>
+                        <li><a href='http://xn----7sbb1dhgbgbk9i.xn--p1ai/' target='_blank'>Переход на сайт</a></li>
                     </ul>
                 </div>
             </div>
