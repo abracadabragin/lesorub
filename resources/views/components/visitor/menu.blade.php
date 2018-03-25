@@ -31,7 +31,7 @@
                 <a class="nav-link" href="#contacts">Контакты</a>
             </li>
             <li class="nav-item align-self-center">
-                <span class='tel-big'><a class='nav-link' href="tel:+73832637073">+7 (383) 263-70-73</a>
+                <span class='tel-big'><a class='nav-link nav-tel' href="tel:+73832637073">+7 (383) 263-70-73</a></span>
             </li>
         </ul>
     </div>

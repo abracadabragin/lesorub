@@ -45,12 +45,15 @@ body {
 }
 
 #navbar-main .nav-link {
+    position: relative;
     color: #232534;
     font-family: 'Roboto Slab', serif;
     font-size: 1.1em;
     transition: color .3s ease;
 }
-
+#navbar-main .nav-link:hover {
+    color: #737584;
+}
 #navbar-main .tel-small {
     display: inline-block;
 }
@@ -73,11 +76,6 @@ body {
 #navbar-main .navbar-brand img {
     width: 80px;
     height: 80px;
-}
-
-#navbar-main .nav-link:hover,
-#navbar-main .navbar-brand:hover {
-    color: #A59FA2;
 }
 
 #navbar-main .navbar-toggler-icon {
@@ -433,5 +431,40 @@ body {
     }
     .carousel-caption .nav-link {
         display: inline-block;
+    }
+    #navbar-main .nav-link:hover {
+        color: #232534;
+    }
+    #navbar-main .nav-tel:hover {
+        color: #747F5A;
+        text-decoration: underline;
+    }
+    #navbar-main .nav-link:before,
+    #navbar-main .nav-link:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0;
+        background-color: #232534;
+        height: 3px;
+        transition: width .2s ease-out;
+    }
+    #navbar-main .nav-link:before {
+        top: 0;
+        right: 0;
+        transition-delay: .1s;
+    }
+
+    #navbar-main .nav-link:after {
+        bottom: 0;
+        left: 0;
+    }
+    #navbar-main .nav-link:hover:before,
+    #navbar-main .nav-link:hover:after {
+        width: 100%;
+    }
+    #navbar-main .nav-tel:before,
+    #navbar-main .nav-tel:after {
+        display: none;
     }
 }
