@@ -2,10 +2,19 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, maximum-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, maximum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <meta name="description" content="Строительная компания 'Лесоруб' занимает высокую
+    ступень рынка загородного домостроения. Компания 'Лесоруб' занимается
+    проектированием, производством и строительством домов из бруса, каркасных домов
+    с учетом русских традиций домостроения и применения новейших технологий."/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="mr.progin@yandex.ru"/>
+    <meta name="copyright" content="© Лесоруб, 2013-2018. Все права защищены."/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
     <title>@yield('title')</title>
 

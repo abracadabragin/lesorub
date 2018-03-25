@@ -1,5 +1,6 @@
 html, body {
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -40,8 +41,6 @@ body {
 
 #navbar-main {
     background-color: #E3E0E9;
-    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
     box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
 }
 
@@ -51,11 +50,15 @@ body {
     font-size: 1.1em;
     transition: color .3s ease;
 }
+
 #navbar-main .tel-small {
-    display: none;
-    color: #747F5A;
+    display: inline-block;
 }
 #navbar-main .tel-big {
+    display: none;
+}
+#navbar-main .tel-small a,
+#navbar-main .tel-big a {
     color: #747F5A;
 }
 
@@ -83,7 +86,6 @@ body {
 
 .container_carousel,
 .carousel-inner {
-    height: 100vh;
     padding: 0;
 }
 
@@ -92,12 +94,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
+    -webkit-transition: opacity .9s ease-in-out;
     transition: opacity .9s ease-in-out;
-    z-index: -1;
+
 }
 
 .container_carousel .darkness {
@@ -108,15 +112,21 @@ body {
 .container_carousel .carousel-item.current {
     opacity: 1;
 }
+.container_carousel .carousel-control-prev,
+.container_carousel .carousel-control-next {
+    z-index: 2;
+}
 
 .carousel-caption .nav-link {
-    display: inline-block;
+    display: none;
     color: #fff;
-    font-size: 30px;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 10px;
     border: 1px solid white;
-    -webkit-border-radius: 10px 10px 30px 10px;
-    -moz-border-radius: 10px 10px 30px 10px;
-    border-radius: 10px 10px 30px 10px;
+    -webkit-border-radius: 10px 10px 30px 30px;
+    -moz-border-radius: 10px 10px 30px 30px;
+    border-radius: 10px 10px 30px 30px;
 }
 
 .carousel-info {
@@ -127,10 +137,9 @@ body {
 
 .guarantee {
     background-image: url('../img/carousel/wood_tag.png');
-    -webkit-background-size: contain;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 25vh;
+    height: 15vh;
 }
 
 .carousel-block {
@@ -138,18 +147,45 @@ body {
     position: relative;
     background-color: rgba(0,0,0,.3);
     border: white 1px solid;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 10px;
 }
 
 .carousel-text {
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     text-shadow: 0 0 1px #000;
     font-family: 'Russo One', sans-serif;
 }
+
+.carousel-form {
+    position: absolute;
+    top: 50%;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+}
+
+.carousel-form .contact-form {
+    display: block;
+    z-index: 10;
+    background-color: rgba(0,0,0,.3);
+    border: white 1px solid;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+}
+
+.carousel-form .contact-form .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, .5);
+}
+
+.carousel-form .contact-form .btn-transparent {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent;
+}
+
 
 .jumbotron {
     border-radius: 0;
@@ -161,7 +197,6 @@ body {
 
 .form-control:focus {
     border-color: #fff;
-    -webkit-box-shadow: 0 0 0 .2rem rgba(92, 139, 40, 0.78);
     box-shadow: 0 0 0 .2rem rgba(92, 139, 40, 0.78);
 }
 
@@ -178,7 +213,6 @@ body {
 }
 
 .btn-green:focus {
-    -webkit-box-shadow: 0 0 0 .2rem rgba(92, 139, 40, 0.78);
     box-shadow: 0 0 0 .2rem rgba(92, 139, 40, 0.78);
 }
 
@@ -190,8 +224,6 @@ body {
 #advantages,
 #discounts,
 #services {
-    -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, .26);
-    -moz-box-shadow: 0 0 50px rgba(0, 0, 0, .26);
     box-shadow: 0 0 50px rgba(0, 0, 0, .26);
 }
 
@@ -345,17 +377,10 @@ body {
     .modalShowFeedback .modal-lg {
         max-width: 100%;
     }
-    #navbar-main .tel-small {
-        display: inline-block;
-    }
-    #navbar-main .tel-big {
-        display: none;
-    }
-
 }
 @media (min-width: 576px) {
     .carousel-text {
-        font-size: 18px;
+        font-size: 15px;
     }
     .carousel-block {
         padding: 15px;
@@ -365,29 +390,48 @@ body {
 
 @media (min-width: 768px) {
     .carousel-text {
-        font-size: 20px;
+        font-size: 15px;
     }
     .carousel-block {
         padding: 15px;
+    }
+    .carousel-info .container {
+        width: 70%;
+        padding: 0;
+    }
+    .guarantee {
+        background-image: url('../img/carousel/wood_tag.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 25vh;
     }
 }
 
 
 @media (min-width: 992px) {
     .carousel-text {
-        font-size: 22px;
+        font-size: 20px;
     }
     .carousel-block {
-        padding: 20px;
+        padding: 18px;
+    }
+    #navbar-main .tel-small {
+        display: none;
+    }
+    #navbar-main .tel-big {
+        display: inline-block;
     }
 }
 
 
 @media (min-width: 1200px) {
     .carousel-text {
-        font-size: 28px;
+        font-size: 22px;
     }
     .carousel-block {
-        padding: 30px;
+        padding: 22px;
+    }
+    .carousel-caption .nav-link {
+        display: inline-block;
     }
 }

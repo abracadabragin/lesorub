@@ -2,7 +2,7 @@
     <a class="navbar-brand navbar-brand-small" href="/">
         <img src="{{URL::asset('img/logo.png')}}" alt="Lesorub">
     </a>
-    <span class='tel-small'>+7 (383) 263-70-73</span></a>
+    <span class='tel-small'><a href="tel:+73832637073">+7 (383) 263-70-73</a></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                 <a class="nav-link" href="#contacts">Контакты</a>
             </li>
             <li class="nav-item align-self-center">
-                <a class="nav-link"><span class='tel-big'>+7 (383) 263-70-73</span></a>
+                <span class='tel-big'><a class='nav-link' href="tel:+73832637073">+7 (383) 263-70-73</a>
             </li>
         </ul>
     </div>

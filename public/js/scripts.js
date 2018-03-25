@@ -1,13 +1,14 @@
 $(document).ready(function () {
 
+    var $carousel_block = $(".carousel-inner");
     var $items = $(".carousel-item");
     var $wHeight = $(window).height();
-    var $wWidth = $(window).width();
     var carousel_prev = $('.carousel-control-prev');
     var carousel_next = $('.carousel-control-next');
     var outerHeightMenu = $('#navbar-main').outerHeight();
+
     $('.carousel-info').css('padding-top', outerHeightMenu);
-    $items.height($wHeight);
+    $carousel_block.height($wHeight);
 
     $items.each(function() {
         var $src = $(this).data('src');
@@ -17,7 +18,7 @@ $(document).ready(function () {
 
     $(window).on('resize', function (){
         $wHeight = $(window).height();
-        $items.height($wHeight);
+        $carousel_block.height($wHeight);
         outerHeightMenu = $('#navbar-main').outerHeight();
         $('.carousel-info').css('padding-top', outerHeightMenu);
     });
@@ -70,7 +71,7 @@ $(document).ready(function () {
             scrollTop: scrollPos
         }, 500);
 
-        if($('.navbar-toggler').css('display') !== 'none') {
+        if($('.navbar-collapse').hasClass('show')) {
             $('.navbar-toggler').click();
         }
 
