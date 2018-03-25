@@ -10,7 +10,7 @@
     <p>Заявка отправлена через форму в контактной информации</p>
 @endif
 @if(isset($params['product_name']))
-    <p><b>Название проекта:</b> {{ $params['product_name'] }}</p>
+    <p><b>Заинтересовавший проект:</b> {{ $params['product_name'] }}</p>
 @endif
 @if($params['name'])
     <p><b>Имя:</b> {{ $params['name'] }}</p>
