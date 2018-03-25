@@ -57,6 +57,9 @@ $(document).ready(function () {
         });
 
     });
+    setInterval(function () {
+        carousel_next.click();
+    }, 7000);
     // -- end carousel
     // -- begin nav
 
