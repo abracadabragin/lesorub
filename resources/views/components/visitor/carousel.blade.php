@@ -8,7 +8,7 @@
                             <div class='col-8'></div>
                             <div class='col-4 guarantee'></div>
                         </div>
-                        <div class='row justify-content-center'>
+                        <div class='row justify-content-center justify-content-md-start'>
                             <div class='col-10 col-xl-12'>
                                 <div class='carousel-block'>
                                     <h2 class='carousel-text'>Построено объектов — 217</h2>
@@ -95,6 +95,13 @@
                         </form>
 
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class='carousel-btn'>
+            <div class='container'>
+                <div class='offset-1 col-10 offset-sm-7 col-sm-5'>
+                    <a href='#contacts' class='btn btn-transparent'>Оставить заявку</a>
                 </div>
             </div>
         </div>

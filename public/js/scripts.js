@@ -23,7 +23,22 @@ $(document).ready(function () {
         $('.carousel-info').css('padding-top', outerHeightMenu);
     });
 
+    var carousel_timer = null;
+    var restartTimer = function () {
+
+        if (carousel_timer) {
+            clearInterval(carousel_timer);
+        }
+
+        carousel_timer = setInterval(function () {
+            carousel_next.click();
+        }, 7000);
+
+    };
+
     carousel_prev.click(function () {
+
+        restartTimer();
 
         $items.each(function ($index) {
 
@@ -43,6 +58,8 @@ $(document).ready(function () {
     });
     carousel_next.click(function () {
 
+        restartTimer();
+
         $items.each(function ($index) {
 
             if($(this).hasClass("current")) {
@@ -57,9 +74,6 @@ $(document).ready(function () {
         });
 
     });
-    setInterval(function () {
-        carousel_next.click();
-    }, 7000);
     // -- end carousel
     // -- begin nav
 
@@ -141,7 +155,7 @@ $(document).ready(function () {
             var modal = $('.modalShowProduct');
 
             photos.forEach(function (item) {
-                var img = $('<img>').attr('data-src', item).addClass('owl-lazy');
+                var img = $('<img>').attr('src', item);
                 img.appendTo(modal.find('.owl-carousel'));
             });
             modal.find('.modal-title').text(product['title']);
@@ -167,19 +181,85 @@ $(document).ready(function () {
             });
             modal.modal('show');
             var maximizeModal = $('.maximize-item');
+            var prevBtn = $('.maximize-prev');
+            var nextBtn = $('.maximize-next');
             $owl.find('.owl-item').on('click', function () {
-                maximizeModal.find('.img-block').html($(this).find('img').clone().addClass('img-fluid'));
+                var next = $(this).next('.owl-item').find('img').attr('src');console.log(next);
+                var prev = $(this).prev('.owl-item').find('img').attr('src');console.log(prev);
+                if (next) {
+                    nextBtn.show();
+                    nextBtn.attr('data-src', next);
+                }
+                else {
+                    nextBtn.hide();
+                }
+                if (prev) {
+                    prevBtn.show();
+                    prevBtn.attr('data-src', prev);
+                }
+                else {
+                    prevBtn.hide();
+                }
+                prevBtn.attr('data-src', prev);
+                nextBtn.attr('data-src', next);
+                var current_image = $(this).find('img').clone().addClass('img-fluid');
+                maximizeModal.find('.img-block').find('img').remove();
+                maximizeModal.find('.img-block').append(current_image);
                 maximizeModal.show();
             });
-            maximizeModal.on('click', function () {
+            maximizeModal.find('.close').click(function () {
+                maximizeModal.find('.img-block').find('img').remove();
                 maximizeModal.hide();
             });
 
+            var change_image = function () {
+                var img = $('.modal-photos').find('[src="' + $(this).attr('data-src') + '"]');
+                var owl_item = img.closest('.owl-item');
+                var next = owl_item.next('.owl-item').find('img').attr('src');console.log(next);
+                var prev = owl_item.prev('.owl-item').find('img').attr('src');console.log(prev);
+                if (next) {
+                    nextBtn.show();
+                    nextBtn.attr('data-src', next);
+                } else {
+                    nextBtn.hide();
+                }
+                if (prev) {
+                    prevBtn.show();
+                    prevBtn.attr('data-src', prev);
+                } else {
+                    prevBtn.hide();
+                }
+                maximizeModal.find('.img-block').find('img').remove();
+                maximizeModal.find('.img-block').append(img.clone().addClass('img-fluid'));
+            };
+            nextBtn.on('click', change_image);
+            prevBtn.on('click', change_image);
+            $('body').keydown(function(e) {
+                if (maximizeModal.is(':visible')) {
+                    if(e.keyCode === 37) { // left
+                        if (prevBtn.is(':visible'))
+                            prevBtn.click();
+                    }
+                    else if(e.keyCode === 39) { // right
+                        if (nextBtn.is(':visible'))
+                            nextBtn.click();
+                    }
+                }
+            });
         });
 
         return false;
     });
+    $('.modalShowProduct').on('hide.bs.modal', function () {
+
+        $('.maximize-item').hide();
+
+    });
     $('.modalShowProduct').on('hidden.bs.modal', function () {
+        $('.maximize-prev').off().removeAttr('data-src');
+        $('.maximize-next').off().removeAttr('data-src');
+        $('.owl-item').off();
+        $('body').off();
         $(this).find('.owl-carousel').trigger('destroy.owl.carousel').removeClass('owl-loaded');
         $(this).find('.owl-carousel').html("");
     });
@@ -289,7 +369,10 @@ $(document).ready(function () {
     // -- end forms
     // -- begin preloader
     setTimeout(function() {
+
+        restartTimer();
         $('.preloader').fadeOut(1000);
+
         setTimeout(function () {
             $('.preloader').removeClass('d-flex');
         }, 900);

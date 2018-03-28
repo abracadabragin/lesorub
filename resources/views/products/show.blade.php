@@ -6,7 +6,13 @@
                 <button type="button" class="close">
                     <span>&times;</span>
                 </button>
-                <div class='img-block'>
+                <div class='img-block d-flex justify-content-center align-items-center'>
+                    <div class='maximize-prev'>
+                        <span><i class="fas fa-angle-double-left"></i></span>
+                    </div>
+                    <div class='maximize-next'>
+                        <span><i class="fas fa-angle-double-right"></i></span>
+                    </div>
                 </div>
             </div>
             <div class='modal-header'>
