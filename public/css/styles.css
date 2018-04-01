@@ -169,6 +169,11 @@ body {
     display: block;
     z-index: 10;
 }
+.carousel-btn .btn-transparent:visited,
+.carousel-btn .btn-transparent:active,
+.carousel-btn .btn-transparent:hover {
+    color: #fff;
+}
 .carousel-form {
     display: none;
     position: absolute;

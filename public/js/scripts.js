@@ -142,13 +142,12 @@ $(document).ready(function () {
     $('#houses .owl-next').click(function () {
         $("#houses .owl-carousel").trigger('next.owl.carousel', [400]);
     });
+    var showDescription = function (self) {
 
-    $('.show-description').click(function(){
-
-        var $url = window.location.href + "products/" + $(this).data('id') + "/show";
+        var $url = window.location.href + "products/" + self.data('id') + "/show";
         $.ajax({
-           url: $url,
-           type: 'GET'
+            url: $url,
+            type: 'GET'
         }).done(function (data) {
             var product = data['product'];
             var photos = product['photos'];
@@ -184,8 +183,8 @@ $(document).ready(function () {
             var prevBtn = $('.maximize-prev');
             var nextBtn = $('.maximize-next');
             $owl.find('.owl-item').on('click', function () {
-                var next = $(this).next('.owl-item').find('img').attr('src');console.log(next);
-                var prev = $(this).prev('.owl-item').find('img').attr('src');console.log(prev);
+                var next = $(this).next('.owl-item').find('img').attr('src');
+                var prev = $(this).prev('.owl-item').find('img').attr('src');
                 if (next) {
                     nextBtn.show();
                     nextBtn.attr('data-src', next);
@@ -215,8 +214,8 @@ $(document).ready(function () {
             var change_image = function () {
                 var img = $('.modal-photos').find('[src="' + $(this).attr('data-src') + '"]');
                 var owl_item = img.closest('.owl-item');
-                var next = owl_item.next('.owl-item').find('img').attr('src');console.log(next);
-                var prev = owl_item.prev('.owl-item').find('img').attr('src');console.log(prev);
+                var next = owl_item.next('.owl-item').find('img').attr('src');
+                var prev = owl_item.prev('.owl-item').find('img').attr('src');
                 if (next) {
                     nextBtn.show();
                     nextBtn.attr('data-src', next);
@@ -249,6 +248,21 @@ $(document).ready(function () {
         });
 
         return false;
+    };
+    var clickTimeout;
+
+    $('.show-description').click(function(){
+        if (!clickTimeout) {
+
+            setTimeout(function () {  }, 500);
+            showDescription($(this));
+        }
+
+    }).on('dblclick', function(event) {
+
+        event.preventDefault();
+        clearTimeout(clickTimeout);
+
     });
     $('.modalShowProduct').on('hide.bs.modal', function () {
 
