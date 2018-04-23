@@ -155,6 +155,14 @@ class ProductController extends Controller
         $product->discount = $request->has('discount') ? true : null;
         $product->update($request->all());
 
+        foreach ($request->photos as $photo) {
+            $filename = $photo->store('public/photos');
+            ProductPhoto::create([
+                'product_id' => $product->id,
+                'filename' => $filename
+            ]);
+        }
+
         return redirect('/');
     }
 

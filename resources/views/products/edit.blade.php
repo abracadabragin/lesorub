@@ -83,6 +83,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group text-center">
+                                                <label for="inputProductImage"><b>Добавить изображения</b></label>
+                                                <input class="form-control-file" name='photos[]' type="file"
+                                                       id="inputProductImage" value='Выбрать' multiple required>
+                                            </div>
 
                                             <div class="form-group text-center">
                                                 <button type="submit" class="btn btn-green">Изменить</button>
