@@ -362,6 +362,12 @@ body {
     width: 100%;
     height: auto;
 }
+.maximize-item .img-block img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 .maximize-prev,
 .maximize-next {
     display: flex;
@@ -404,6 +410,17 @@ body {
 .modalShowFeedback .modal-lg {
     max-width: 80%;
 }
+.modalShowProduct .owl-item img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transform-style: flat;
+    -moz-transform-style: flat;
+    -ms-transform-style: flat;
+    transform-style: flat;
+}
+
 
 @media (max-width: 991.98px) {
 

@@ -147,7 +147,8 @@ $(document).ready(function () {
         var $url = window.location.href + "products/" + self.data('id') + "/show";
         $.ajax({
             url: $url,
-            type: 'GET'
+            type: 'GET',
+            async: false
         }).done(function (data) {
             var product = data['product'];
             var photos = product['photos'];
@@ -249,26 +250,25 @@ $(document).ready(function () {
 
         return false;
     };
-    var clickTimeout;
 
+    /*var clickTimeout;
     $('.show-description').click(function(){
         if (!clickTimeout) {
-
-            setTimeout(function () {  }, 500);
+            clickTimeout = setTimeout(function () {  }, 500);
             showDescription($(this));
         }
-
     }).on('dblclick', function(event) {
-
         event.preventDefault();
         clearTimeout(clickTimeout);
-
+    });*/
+    $('.show-description').click(function(){
+        showDescription($(this));
     });
+
     $('.modalShowProduct').on('hide.bs.modal', function () {
-
         $('.maximize-item').hide();
-
     });
+
     $('.modalShowProduct').on('hidden.bs.modal', function () {
         $('.maximize-prev').off().removeAttr('data-src');
         $('.maximize-next').off().removeAttr('data-src');
