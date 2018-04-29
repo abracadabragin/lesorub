@@ -1,0 +1,1 @@
+<div id="yandex-map" class='w-100'></div>

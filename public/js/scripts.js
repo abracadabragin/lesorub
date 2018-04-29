@@ -100,6 +100,10 @@ $(document).ready(function () {
         item: 3,
         margin: 10,
         lazyLoad: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        rewind: true,
         responsive:{
             0:{
                 items:1
@@ -392,6 +396,23 @@ $(document).ready(function () {
         }, 900);
     }, 500);
 
+    ymaps.ready(init);
 
+    var myMap, myPlacemark;
+    function init(){
+        myMap = new ymaps.Map("yandex-map", {
+            center: [55.012438, 82.930995],
+            zoom: 13,
+            ScrollZoom: false
+        });
 
+        myPlacemark = new ymaps.Placemark([55.012438, 82.930995], {
+            hintContent: 'Строительная компания "Лесоруб"',
+            balloonContent: 'ул. Инская, 39, офис 301.<br><b>Время работы:</b><br>Будние дни с 10:00 до 19:00<br>Выходные дни по договоренности'
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+        myMap.behaviors.disable('scrollZoom');
+
+    }
 });

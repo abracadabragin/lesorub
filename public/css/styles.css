@@ -420,7 +420,13 @@ body {
     -ms-transform-style: flat;
     transform-style: flat;
 }
-
+pre.modal-description {
+	white-space: pre-wrap;
+	font: inherit;
+}
+#yandex-map {
+    height: 350px;
+}
 
 @media (max-width: 991.98px) {
 
@@ -502,6 +508,9 @@ body {
     }
     #navbar-main .tel-big {
         display: inline-block;
+    }
+    #yandex-map {
+        height: 600px;
     }
 }
 

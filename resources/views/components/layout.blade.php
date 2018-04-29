@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, maximum-scale=1.0"/>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="address=no"/>
-    <meta name="description" content="Строительная компания 'Лесоруб' занимает высокую
+    <meta name="description" content="Новосибирская строительная компания 'Лесоруб' занимает высокую
     ступень рынка загородного домостроения. Компания 'Лесоруб' занимается
     проектированием, производством и строительством домов из бруса, каркасных домов
     с учетом русских традиций домостроения и применения новейших технологий."/>
@@ -26,6 +26,36 @@
     <link rel='stylesheet' href='{{URL::asset('css/owlcarousel/owl.theme.default.min.css')}}'>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Russo+One" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter48698090 = new Ya.Metrika({
+                        id:48698090,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/48698090" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>

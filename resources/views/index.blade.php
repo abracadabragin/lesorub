@@ -34,6 +34,7 @@
     @include('components.feedbacks')
     @if (!Auth::check())
         @include('components.visitor.services')
+        @include('components.visitor.yandex-map')
         @include('components.visitor.contacts')
     @endif
     @include('products.show')
